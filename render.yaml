@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ai-note-summarizer
+    env: python
+    buildCommand: |
+      cd frontend
+      npm install
+      npm run build
+      cd ..
+      pip install -r backend/requirements.txt
+    startCommand: python backend/app.py
+    envVars:
+      - key: HF_TOKEN
+        sync: false
