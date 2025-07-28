@@ -7,6 +7,9 @@ services:
     startCommand: python app.py
     workingDir: backend
     autoDeploy: true
+    envVars:
+      - key: HF_TOKEN
+        sync: false
 
   - type: web
     name: ai-frontend
