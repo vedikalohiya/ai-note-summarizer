@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ✅ Flask app setup
-app = Flask(__name__, static_folder="../frontend/build", static_url_path="/")
+app = Flask(__name__, static_folder="build", static_url_path="/")
 CORS(app)
 
 # ✅ HuggingFace API config
