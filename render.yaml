@@ -2,7 +2,6 @@ services:
   - type: web
     name: ai-backend
     env: python
-    plan: free
     buildCommand: pip install -r backend/requirements.txt
     startCommand: python backend/app.py
     autoDeploy: true
@@ -13,7 +12,6 @@ services:
   - type: web
     name: ai-frontend
     env: static
-    plan: free
     buildCommand: cd frontend && npm install && npm run build
     staticPublishPath: frontend/build
     autoDeploy: true
