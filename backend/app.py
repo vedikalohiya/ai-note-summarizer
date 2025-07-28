@@ -16,12 +16,16 @@ HF_TOKEN = os.getenv("HF_TOKEN")
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
 HEADERS = {"Authorization": f"Bearer {HF_TOKEN}"}
 
-# ✅ Home route
-@app.route("/", methods=["GET"])
-def serve():
-    return send_from_directory(app.static_folder, "index.html")
+# ✅ Serve React frontend
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def serve(path):
+    if path != "" and os.path.exists(os.path.join(app.static_folder, path)):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, "index.html")
 
-# ✅ Summarization endpoint
+# ✅ Summarization API endpoint
 @app.route("/api/summarize", methods=["POST"])
 def summarize():
     data = request.get_json()
@@ -34,7 +38,7 @@ def summarize():
         response = requests.post(API_URL, headers=HEADERS, json={"inputs": input_text})
         result = response.json()
 
-        # ✅ Log the HuggingFace response to debug issues
+        # ✅ Log the HuggingFace response
         print("\n[DEBUG] HuggingFace API Response:")
         print(result)
 
@@ -52,11 +56,7 @@ def summarize():
     except Exception as e:
         return jsonify({"error": "An unexpected error occurred", "details": str(e)}), 500
 
-# ✅ Fallback for React Router (404s)
-@app.errorhandler(404)
-def not_found(e):
-    return send_from_directory(app.static_folder, "index.html")
-
-# ✅ Run app
+# ✅ Run app (with port for Render)
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))  # Render sets PORT
+    app.run(host="0.0.0.0", port=port)
