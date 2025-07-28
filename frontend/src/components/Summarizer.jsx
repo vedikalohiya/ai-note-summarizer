@@ -56,7 +56,8 @@ const Summarizer = () => {
     setError('');
     setSummary('');
     try {
-      const res = await axios.post('http://127.0.0.1:5000/api/summarize', { note });
+    const res = await axios.post("https://ai-note-summarizer-j416.onrender.com/api/summarize", { note });
+
       setSummary(res.data.summary);
 
       const history = JSON.parse(localStorage.getItem("summaryHistory")) || [];
