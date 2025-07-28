@@ -1,3 +1,4 @@
+/* Upload button */
 .custom-upload-btn button {
   background: linear-gradient(90deg, #6f118e 0%, #db97f6 100%);
   color: #fff;
@@ -14,42 +15,43 @@
 .custom-upload-btn button:hover {
   background: linear-gradient(90deg, #db97f6 0%, #6f118e 100%);
 }
+
+/* Background & layout */
 body {
-background-image: url('/bg.avif'), linear-gradient(135deg, #a6c5ff 0%, #cfdef3 100%);
-background-size: cover;
-background-repeat: no-repeat;
-background-blend-mode: overlay;
-min-height: 100vh;
-margin: 0;
-font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
-display: flex;
-align-items: center;
-justify-content: center;
+  background-image: url('/bg.avif'), linear-gradient(135deg, #a6c5ff 0%, #cfdef3 100%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
+/* Summarizer Card */
 .summarizer-card {
   background: #ded2ff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
-  padding: 3rem 5rem;
+  padding: 3rem 4rem;
   max-width: 600px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   box-sizing: border-box;
-@media (max-width: 700px) {
-  .summarizer-card {
-    padding: 1rem 2rem;
-    max-width: 95vw;
-  }
-}
 }
 
+/* Title */
 .summarizer-card h2 {
   color: #2563eb;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
+/* Textarea */
 .summarizer-card textarea {
   border: 1px solid #000000;
   border-radius: 8px;
@@ -58,8 +60,10 @@ justify-content: center;
   width: 100%;
   margin-bottom: 1rem;
   resize: vertical;
+  box-sizing: border-box;
 }
 
+/* Button */
 .summarizer-card button {
   background: linear-gradient(90deg, #6f118e 0%, #db97f6 100%);
   color: #fff;
@@ -69,6 +73,7 @@ justify-content: center;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
+  width: 100%;
 }
 
 .summarizer-card button:disabled {
@@ -76,9 +81,50 @@ justify-content: center;
   cursor: not-allowed;
 }
 
+/* Margin-top spacing */
 .summarizer-card .mt-4 {
   margin-top: 1rem;
-}.App {
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .summarizer-card {
+    padding: 2rem;
+  }
+
+  .summarizer-card h2 {
+    font-size: 1.25rem;
+  }
+
+  .summarizer-card button {
+    font-size: 0.95rem;
+    padding: 0.65rem 1rem;
+  }
+
+  .custom-upload-btn button {
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .summarizer-card {
+    padding: 1.5rem;
+  }
+
+  .summarizer-card h2 {
+    font-size: 1.1rem;
+  }
+
+  .summarizer-card button,
+  .custom-upload-btn button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+}
+
+/* App base styles */
+.App {
   text-align: center;
 }
 
