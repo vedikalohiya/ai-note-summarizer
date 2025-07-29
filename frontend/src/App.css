@@ -1,4 +1,4 @@
-/* Upload button */
+/* Custom Upload Button */
 .custom-upload-btn button {
   background: linear-gradient(90deg, #6f118e 0%, #db97f6 100%);
   color: #fff;
@@ -7,8 +7,7 @@
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
-  margin-bottom: 0;
-  margin-top: 0;
+  margin: 0;
   transition: background 0.2s;
 }
 
@@ -16,11 +15,13 @@
   background: linear-gradient(90deg, #db97f6 0%, #6f118e 100%);
 }
 
-/* Background & layout */
+/* Body Styling */
 body {
   background-image: url('/bg.avif'), linear-gradient(135deg, #a6c5ff 0%, #cfdef3 100%);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
   background-blend-mode: overlay;
   min-height: 100vh;
   margin: 0;
@@ -28,30 +29,26 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
-  box-sizing: border-box;
+  overflow-x: hidden; /* 🔒 Prevent horizontal scroll */
 }
 
 /* Summarizer Card */
 .summarizer-card {
   background: #ded2ff;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   border-radius: 16px;
-  padding: 3rem 4rem;
+  padding: 3rem 5rem;
   max-width: 600px;
   width: 100%;
+  margin: auto;
   box-sizing: border-box;
 }
 
-/* Title */
 .summarizer-card h2 {
   color: #2563eb;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  text-align: center;
 }
 
-/* Textarea */
 .summarizer-card textarea {
   border: 1px solid #000000;
   border-radius: 8px;
@@ -60,10 +57,8 @@ body {
   width: 100%;
   margin-bottom: 1rem;
   resize: vertical;
-  box-sizing: border-box;
 }
 
-/* Button */
 .summarizer-card button {
   background: linear-gradient(90deg, #6f118e 0%, #db97f6 100%);
   color: #fff;
@@ -73,7 +68,6 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
-  width: 100%;
 }
 
 .summarizer-card button:disabled {
@@ -81,49 +75,28 @@ body {
   cursor: not-allowed;
 }
 
-/* Margin-top spacing */
 .summarizer-card .mt-4 {
   margin-top: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive Fixes */
+@media (max-width: 700px) {
   .summarizer-card {
-    padding: 2rem;
+    padding: 1.2rem 1rem;
+    max-width: 90vw;
   }
 
-  .summarizer-card h2 {
-    font-size: 1.25rem;
+  .summarizer-card textarea {
+    font-size: 0.9rem;
   }
 
   .summarizer-card button {
+    padding: 0.6rem 1.2rem;
     font-size: 0.95rem;
-    padding: 0.65rem 1rem;
-  }
-
-  .custom-upload-btn button {
-    font-size: 0.95rem;
-    padding: 0.4rem 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .summarizer-card {
-    padding: 1.5rem;
-  }
-
-  .summarizer-card h2 {
-    font-size: 1.1rem;
-  }
-
-  .summarizer-card button,
-  .custom-upload-btn button {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.8rem;
-  }
-}
-
-/* App base styles */
+/* App Defaults */
 .App {
   text-align: center;
 }
