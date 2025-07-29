@@ -1,4 +1,4 @@
-/* Custom Upload Button */
+/* === Custom Upload Button === */
 .custom-upload-btn button {
   background: linear-gradient(90deg, #6f118e 0%, #db97f6 100%);
   color: #fff;
@@ -15,7 +15,7 @@
   background: linear-gradient(90deg, #db97f6 0%, #6f118e 100%);
 }
 
-/* Body Styling */
+/* === Body Styling === */
 body {
   background-image: url('/bg.avif'), linear-gradient(135deg, #a6c5ff 0%, #cfdef3 100%);
   background-size: cover;
@@ -29,24 +29,27 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow-x: hidden; /* 🔒 Prevent horizontal scroll */
+  overflow-x: hidden; /* ✅ Prevent horizontal scroll */
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-/* Summarizer Card */
+/* === Summarizer Card === */
 .summarizer-card {
   background: #ded2ff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 3rem 5rem;
   max-width: 600px;
-  width: 100%;
-  margin: auto;
+  width: 90%;
+  margin: 1rem auto;
   box-sizing: border-box;
 }
 
 .summarizer-card h2 {
   color: #2563eb;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 .summarizer-card textarea {
@@ -57,6 +60,7 @@ body {
   width: 100%;
   margin-bottom: 1rem;
   resize: vertical;
+  box-sizing: border-box;
 }
 
 .summarizer-card button {
@@ -79,15 +83,14 @@ body {
   margin-top: 1rem;
 }
 
-/* Responsive Fixes */
+/* === Responsive Fixes === */
 @media (max-width: 700px) {
   .summarizer-card {
-    padding: 1.2rem 1rem;
-    max-width: 90vw;
+    padding: 1.5rem 1rem;
   }
 
   .summarizer-card textarea {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .summarizer-card button {
@@ -96,7 +99,28 @@ body {
   }
 }
 
-/* App Defaults */
+@media (max-width: 480px) {
+  .summarizer-card {
+    padding: 1.2rem 0.8rem;
+    width: 95vw;
+  }
+
+  .summarizer-card h2 {
+    font-size: 1.2rem;
+  }
+
+  .summarizer-card textarea {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+
+  .summarizer-card button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* === App Defaults === */
 .App {
   text-align: center;
 }
